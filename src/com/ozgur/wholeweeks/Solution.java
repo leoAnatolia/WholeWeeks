@@ -48,12 +48,12 @@ public class Solution {
 		
 		
 		
-		if(! isFirstDayMonday(Y,A)){
+		if(! isFirstDaySunday(Y,A)){
 			returnVal--;
 		}
 	
 		
-		if(! isLastDayOfMonthSunday(Y,B)){
+		if(! isLastDayOfMonthSaturday(Y,B)){
 			returnVal--;
 		}		
 		
@@ -63,7 +63,7 @@ public class Solution {
 	}
 	
 
-	public boolean isFirstDayMonday(int year, String _month) {
+	public boolean isFirstDaySunday(int year, String _month) {
 
 		
 		Calendar c = Calendar.getInstance();
@@ -71,27 +71,18 @@ public class Solution {
 		c = new GregorianCalendar(year,getOrdinalOfMonth(_month),1);
 		
 		
-		return (c.get(Calendar.DAY_OF_WEEK) == 2);
+		return (c.get(Calendar.DAY_OF_WEEK) == 1);
 	}
 
-	public boolean isSecondDayMonday(int year, String _month) {
 
-		
-		Calendar c = Calendar.getInstance();
-		
-		c = new GregorianCalendar(year,getOrdinalOfMonth(_month),2);
-		
-		
-		return (c.get(Calendar.DAY_OF_WEEK) == 2);
-	}
 	
-	public boolean isLastDayOfMonthSunday(int year, String month_b) {
+	public boolean isLastDayOfMonthSaturday(int year, String month_b) {
 		Calendar c = Calendar.getInstance();
 		
 		c = new GregorianCalendar(year,getOrdinalOfMonth(month_b),getTotalDayCountOfMonth(year, 1+getOrdinalOfMonth(month_b)));
 		
 		
-		return (c.get(Calendar.DAY_OF_WEEK) == 1);
+		return (c.get(Calendar.DAY_OF_WEEK) == 7);
 	}
 	public int getTotalDayCountOfMonth(int year, int monthIndex){
 		int totalDayCountInThisMonth = 30;
