@@ -22,12 +22,12 @@ public class TestSolution {
 	@Test
 	public void testFirstScenario() throws Exception {
 		 
-		//assertEquals(7, soln.solution(2014, "April", "May", "Wednesday"));
+		assertEquals(8, soln.solution(2014, "April", "May", "Wednesday"));
 		
 		
 		assertEquals(12, soln.solution(2015, "January", "March", "Thursday"));
 		
-		assertEquals(16, soln.solution(2012, "March", "June", "Thursday"));
+		assertEquals(17, soln.solution(2012, "March", "June", "Thursday"));
 		
 		
 		assertEquals(8, soln.solution(2012, "July", "August", "Sunday"));
@@ -55,15 +55,17 @@ public class TestSolution {
 	
 	@Test
 	public void testIsFirstDayMonday() throws Exception {
-		assertFalse(soln.isFirstDayMonday(2016, "April"));
-		assertTrue(soln.isFirstDayMonday(2016, "February"));
+		assertFalse(soln.isFirstDaySunday(2016, "April"));
+		assertTrue(soln.isFirstDaySunday(2012, "April"));
 	}
 	
 	
 	@Test
 	public void testIsLastDayOfMonthSunday() throws Exception {
-		assertFalse(soln.isLastDayOfMonthSunday(2016, "April"));
-		assertTrue(soln.isLastDayOfMonthSunday(2017, "April"));
+		assertTrue(soln.isLastDayOfMonthSaturday(2016, "April"));
+		assertFalse(soln.isLastDayOfMonthSaturday(2017, "April"));
+		
+		assertFalse(soln.isLastDayOfMonthSaturday(2012, "May"));
 
 	}
 	
